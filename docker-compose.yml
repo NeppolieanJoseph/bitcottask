@@ -1,0 +1,26 @@
+version: '2'
+services:
+  myapp:
+    container_name: bitcot-nodejs
+    image: 'neppoliean/nodejs'
+    restart: always
+    build: .
+    ports:
+      - '3000:3000'
+    links:
+      - redis
+      - mongo
+  mongo:
+    container_name: bitcot-mongo
+    image: 'neppoliean/mongodb'
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo:/data/db
+  redis:
+    container_name: bitcot-redis
+    image: 'neppoliean/redis'
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
