@@ -26,3 +26,8 @@ docker run --name nodejs -p 3000:3000 -d neppoliean/nodejs.
 
 
 Now try to curl http://localhost:3000/add-student
+
+
+Try to run it from docker compose run it inthe root directory docker-compose up..
+
+It will start the new containers and communicate with each others
