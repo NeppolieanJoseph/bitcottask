@@ -1,3 +1,13 @@
+#!/bin/bash
+docker_volume=`docker volume ls -qf dangling=true`
+
+if [ -z $docker_volume ]
+then
+    echo "Nothing to delete"
+else
+    docker volume rm $docker_volume
+fi
+
 nodejs=`docker ps -aqf "name=nodejs"`
 echo $nodejs
 rediscache=`docker ps -aqf "name=rediscache"`
