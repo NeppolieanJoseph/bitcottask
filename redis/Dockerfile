@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+RUN ulimit -s unlimited
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y redis-server && \
